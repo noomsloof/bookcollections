@@ -1,10 +1,13 @@
-﻿@{
+﻿@model IEnumerable<bookcollection.Models.Book>;
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
 
 <div class="text-center">
-    <h1 class="display-4">Book Collections <a class="card-link" data-bs-toggle="modal" data-bs-target="#myModal" style="text-decoration: none">+</a> </h1>
+    <h1 class="display-4">Book Collections <a class="card-link" asp-controller="Home" asp-action="Create" style="text-decoration: none">+</a> </h1>
+
     <p>หนังสือเก่าในมุมเดิม</p>
 </div>
 
@@ -62,52 +65,13 @@
 
 </div>
 
-
-<!-- Modal -->
-<div class="modal fade modal-lg" id="myModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header" style="justify-content: space-between;">
-                <h5 class="modal-title" id="exampleModalLabel">เพิ่มหนังสือในกอง (อีกแล้ว)</h5>
-                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+@foreach (var book in Model)
+    {
+        <div class="card" style="width: 18rem; margin: 1.5rem">
+            <img src="@book.Image" class="card-img-top" alt="...">
+            <div class="card-body">
+            <p class="card-text">@book.BookName</p>
+                <p class="card-text">อ่านแล้ว</p>
             </div>
-            <div class="modal-body">
-
-                <!-- content -->
-
-                <div class="mb-3">
-                    <label for="formFile" class="form-label">รูปหนังสือ</label>
-                    <input class="form-control" type="file" id="formFile">
-                </div>
-
-                <div class="mb-3">
-                    <label for="formFile" class="form-label">ชื่อหนังสือ</label>
-                    <input class="form-control" type="text" placeholder="ชื่อหนังสือ" aria-label="default input example">
-                </div>
-
-                <div class="mb-3 form-floating">
-                    <textarea class="form-control" id="floatingTextarea2" style="height: 100px"></textarea>
-                    <label for="floatingTextarea2">รายละเอียดเพิ่มเติม</label>
-                </div>
-
-                <div class="mb-3">
-                    <select class="form-select" aria-label="Default select example">
-                        <option selected>ประเภทหนังสือ</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                    </select>
-                </div>
-
-
-            </div>
-            <div class="modal-footer">
-                <a class="btn btn-primary" asp-controller="Calculate" asp-action="Edit" asp-route-id="Id"> เพิ่ม </a>
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">ปิด</button>
-            </div>
-
         </div>
-    </div>
-</div>
+    }

@@ -1,4 +1,5 @@
 using System.Diagnostics;
+using bookcollection.Data;
 using bookcollection.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -6,27 +7,34 @@ namespace bookcollection.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        private readonly ApplicationDBContext _db;
+        public HomeController(ApplicationDBContext db)
         {
-            _logger = logger;
+            _db = db;
         }
-
         public IActionResult Index()
         {
-            return View();
+            IEnumerable<Book> allBook = _db.Books;
+            return View(allBook);
         }
 
-        public IActionResult Privacy()
+        public IActionResult Create()
         {
             return View();
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Create(Book obj)
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            if (ModelState.IsValid)
+            {
+                _db.Books.Add(obj);
+                _db.SaveChanges();
+                return RedirectToAction("Index");
+
+            }
+            return View(obj);
         }
     }
 }

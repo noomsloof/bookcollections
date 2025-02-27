@@ -5,6 +5,22 @@
     {
       "AbsoluteMoniker": "D:0:0:{7796B817-6885-4B3B-8898-DD40DBBE37FA}|bookcollection\\bookcollection.csproj|c:\\users\\thebe\\onedrive\\desktop\\bc\\bookcollection\\bookcollection\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{7796B817-6885-4B3B-8898-DD40DBBE37FA}|bookcollection\\bookcollection.csproj|solutionrelative:bookcollection\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7796B817-6885-4B3B-8898-DD40DBBE37FA}|bookcollection\\bookcollection.csproj|c:\\users\\thebe\\onedrive\\desktop\\bc\\bookcollection\\bookcollection\\models\\book.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7796B817-6885-4B3B-8898-DD40DBBE37FA}|bookcollection\\bookcollection.csproj|solutionrelative:bookcollection\\models\\book.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7796B817-6885-4B3B-8898-DD40DBBE37FA}|bookcollection\\bookcollection.csproj|c:\\users\\thebe\\onedrive\\desktop\\bc\\bookcollection\\bookcollection\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7796B817-6885-4B3B-8898-DD40DBBE37FA}|bookcollection\\bookcollection.csproj|solutionrelative:bookcollection\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7796B817-6885-4B3B-8898-DD40DBBE37FA}|bookcollection\\bookcollection.csproj|c:\\users\\thebe\\onedrive\\desktop\\bc\\bookcollection\\bookcollection\\views\\home\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7796B817-6885-4B3B-8898-DD40DBBE37FA}|bookcollection\\bookcollection.csproj|solutionrelative:bookcollection\\views\\home\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7796B817-6885-4B3B-8898-DD40DBBE37FA}|bookcollection\\bookcollection.csproj|c:\\users\\thebe\\onedrive\\desktop\\bc\\bookcollection\\bookcollection\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7796B817-6885-4B3B-8898-DD40DBBE37FA}|bookcollection\\bookcollection.csproj|solutionrelative:bookcollection\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,8 +30,34 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\thebe\\OneDrive\\Desktop\\bc\\bookcollection\\bookcollection\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "bookcollection\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\thebe\\OneDrive\\Desktop\\bc\\bookcollection\\bookcollection\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "bookcollection\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-27T14:54:10.051Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Book.cs",
+              "DocumentMoniker": "C:\\Users\\thebe\\OneDrive\\Desktop\\bc\\bookcollection\\bookcollection\\Models\\Book.cs",
+              "RelativeDocumentMoniker": "bookcollection\\Models\\Book.cs",
+              "ToolTip": "C:\\Users\\thebe\\OneDrive\\Desktop\\bc\\bookcollection\\bookcollection\\Models\\Book.cs",
+              "RelativeToolTip": "bookcollection\\Models\\Book.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-27T14:33:32.37Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -24,9 +66,35 @@
               "RelativeDocumentMoniker": "bookcollection\\Views\\Home\\Index.cshtml",
               "ToolTip": "C:\\Users\\thebe\\OneDrive\\Desktop\\bc\\bookcollection\\bookcollection\\Views\\Home\\Index.cshtml",
               "RelativeToolTip": "bookcollection\\Views\\Home\\Index.cshtml",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAAAHAAAAAGAAAAAAAAAA==",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAowEsAAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-02-27T14:12:17.358Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\thebe\\OneDrive\\Desktop\\bc\\bookcollection\\bookcollection\\Views\\Home\\Create.cshtml",
+              "RelativeDocumentMoniker": "bookcollection\\Views\\Home\\Create.cshtml",
+              "ToolTip": "C:\\Users\\thebe\\OneDrive\\Desktop\\bc\\bookcollection\\bookcollection\\Views\\Home\\Create.cshtml",
+              "RelativeToolTip": "bookcollection\\Views\\Home\\Create.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-02-27T15:42:02.662Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ApplicationDBContext.cs",
+              "DocumentMoniker": "C:\\Users\\thebe\\OneDrive\\Desktop\\bc\\bookcollection\\bookcollection\\Data\\ApplicationDBContext.cs",
+              "RelativeDocumentMoniker": "bookcollection\\Data\\ApplicationDBContext.cs",
+              "ToolTip": "C:\\Users\\thebe\\OneDrive\\Desktop\\bc\\bookcollection\\bookcollection\\Data\\ApplicationDBContext.cs",
+              "RelativeToolTip": "bookcollection\\Data\\ApplicationDBContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-27T14:30:19.696Z",
               "EditorCaption": ""
             }
           ]
