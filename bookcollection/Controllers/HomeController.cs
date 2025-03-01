@@ -2,6 +2,7 @@ using System.Diagnostics;
 using bookcollection.Data;
 using bookcollection.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace bookcollection.Controllers
 {
@@ -12,15 +13,24 @@ namespace bookcollection.Controllers
         {
             _db = db;
         }
+
         public IActionResult Index()
         {
-            IEnumerable<Book> allBook = _db.Books;
-            return View(allBook);
-        }
 
-        public IActionResult Create()
-        {
-            return View();
+            try
+            {
+                var viewModel = new BookViewModel
+                {
+                    Books = _db.Books.ToList()
+                };
+                return View(viewModel);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+                return RedirectToAction("Error", new { errorMessage = ex.Message });
+            }
+
         }
 
         [HttpPost]
@@ -36,5 +46,13 @@ namespace bookcollection.Controllers
             }
             return View(obj);
         }
+
+
+        public IActionResult Error(string errorMessage)
+        {
+            ViewBag.ErrorMessage = errorMessage; // ???????????????????????? View
+            return View();
+        }
     }
+
 }
