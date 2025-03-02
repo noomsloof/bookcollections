@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace bookcollection.Models
 {
@@ -26,7 +27,10 @@ namespace bookcollection.Models
 
         [Required]
         [DisplayName("รูปหนังสือ")]
-        public string? Image { get; set; }
+        public string? Image64 { get; set; }
+
+        [NotMapped]
+        public IFormFile ImageFile { get; set; }
 
     }
 }

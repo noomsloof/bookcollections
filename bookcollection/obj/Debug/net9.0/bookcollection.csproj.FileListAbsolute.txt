@@ -90,7 +90,6 @@ C:\Users\thebe\OneDrive\Desktop\bc\bookcollection\bookcollection\obj\Debug\net9.
 C:\Users\thebe\OneDrive\Desktop\bc\bookcollection\bookcollection\obj\Debug\net9.0\staticwebassets\msbuild.buildMultiTargeting.bookcollection.props
 C:\Users\thebe\OneDrive\Desktop\bc\bookcollection\bookcollection\obj\Debug\net9.0\staticwebassets\msbuild.buildTransitive.bookcollection.props
 C:\Users\thebe\OneDrive\Desktop\bc\bookcollection\bookcollection\obj\Debug\net9.0\staticwebassets.pack.json
-C:\Users\thebe\OneDrive\Desktop\bc\bookcollection\bookcollection\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
 C:\Users\thebe\OneDrive\Desktop\bc\bookcollection\bookcollection\obj\Debug\net9.0\bookcollection.dll
 C:\Users\thebe\OneDrive\Desktop\bc\bookcollection\bookcollection\obj\Debug\net9.0\refint\bookcollection.dll
 C:\Users\thebe\OneDrive\Desktop\bc\bookcollection\bookcollection\obj\Debug\net9.0\bookcollection.pdb
@@ -680,3 +679,4 @@ D:\bc\bookcollections\bookcollection\obj\Debug\net9.0\refint\bookcollection.dll
 D:\bc\bookcollections\bookcollection\obj\Debug\net9.0\bookcollection.pdb
 D:\bc\bookcollections\bookcollection\obj\Debug\net9.0\bookcollection.genruntimeconfig.cache
 D:\bc\bookcollections\bookcollection\obj\Debug\net9.0\ref\bookcollection.dll
+C:\Users\thebe\OneDrive\Desktop\bc\bookcollection\bookcollection\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
