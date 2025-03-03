@@ -20,7 +20,7 @@
     @foreach (var book in Model.Books)
      {
             <div class="card" style="width: 18rem; margin: 1.5rem">
-                <form asp-action="Index" asp-controller="Home">
+                <form asp-action="Index" asp-controller="Note" asp-route-id="@book.Id">
                 <div onclick="this.closest('form').submit();" style="cursor: pointer;">
                     <div style="display:flex; justify-content:end;"> <a asp-controller="Home" asp-action="Delete" asp-route-id="@book.Id" style="text-decoration: none">x</a> </div>
                      <img src="data:image/png;base64,@book.Image64" class="card-img-top" alt="...">
@@ -64,8 +64,8 @@
                         </div>
 
                         <div class="mb-3">
-                        <label for="formFile" class="form-label">รายละเอียดเพิ่มเติม</label>
-                            <input asp-for="NewBook.Description" class="form-control" type="text" placeholder="รายละเอียดเพิ่มเติม" aria-label="default input example">
+                            <label for="exampleFormControlTextarea1" class="form-label">รายละเอียดเพิ่มเติม</label>
+                            <textarea asp-for="NewBook.Description" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                         </div>
 
                         <div class="mb-3">
