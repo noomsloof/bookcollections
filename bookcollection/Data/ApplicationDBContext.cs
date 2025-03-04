@@ -9,5 +9,6 @@ namespace bookcollection.Data
         {
         }
         public DbSet<Book> Books { get; set; }
+        public DbSet<Note> Notes { get; set; }
     }
 }

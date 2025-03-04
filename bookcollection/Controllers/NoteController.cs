@@ -1,4 +1,6 @@
-﻿using bookcollection.Data;
+﻿using System.Net;
+using bookcollection.Data;
+using bookcollection.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace bookcollection.Controllers
@@ -17,13 +19,64 @@ namespace bookcollection.Controllers
             if(id != null || id > 0)
             {
                 var obj = _db.Books.Find(id);
-                return View(obj);
+                var viewModel = new NoteViewModel
+                {
+                    ThisBook = obj,
+                    Notes = _db.Notes.Where(n => n.BookID == id).ToList()
+                };
+
+                
+                return View(viewModel);
             }
             else
             {
                 return RedirectToAction("Index", "Home");
             }
             
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Create(NoteViewModel obj)
+        {
+
+            try
+            {
+                if (obj != null)
+                {
+                    var newNote = obj.NewNote;
+                    if (newNote.ImageFile != null && newNote.ImageFile.Length > 0)
+                    {
+                        newNote.Image64 = ConvertImageToBase64(newNote.ImageFile);
+                    }
+
+                    _db.Notes.Add(obj.NewNote);
+                    _db.SaveChanges();
+
+                    int BookId = obj.ThisBook.Id;
+
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    return RedirectToAction("Error", new { errorMessage = "Error no data." });
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+                return RedirectToAction("Error", new { errorMessage = ex.Message });
+            }
+        }
+
+        public string ConvertImageToBase64(IFormFile imageFile)
+        {
+            using (var ms = new MemoryStream())
+            {
+                imageFile.CopyTo(ms);
+                byte[] imageBytes = ms.ToArray();
+                return Convert.ToBase64String(imageBytes);
+            }
         }
 
     }
