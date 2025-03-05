@@ -28,22 +28,46 @@
 @foreach (var note in Model.Notes)
 {
 
-    if(note.Image64 == null){
-        <div class="card" style="width: 18rem; margin: 1.5rem">
-            <div style="display:flex; justify-content:end;"> <a asp-controller="Note" asp-action="Delete" asp-route-id="@note.Id">x</a> </div>
-            <div class="card-body">
-                <p> @note.Content </p>
+        if (note.Image64 == "no-data" && note.Content != "%$#%@#@null%$#%@#@") // X img O text
+        {
+            <div class="card" style="width: 18rem; margin: 1.5rem">
+                    <div style="display:flex; justify-content:end;"> <a asp-controller="Note" asp-action="Delete" asp-route-id="@note.Id" style="text-decoration: none">x</a> </div>
+                <div class="card-body">
+                    <center>
+                        <p> @note.Content </p>
+                    </center>
+                </div>
             </div>
+        }
+        else if (note.Image64 != "no-data" && note.Content != "%$#%@#@null%$#%@#@") // O img O text
+        {
+            <div class="card" style="width: 18rem; margin: 1.5rem">
+                    <div style="display:flex; justify-content:end;"> <a asp-controller="Note" asp-action="Delete" asp-route-id="@note.Id" style="text-decoration: none">x</a> </div>
+                <img src="data:image/png;base64,@note.Image64" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <p> @note.Content </p>
+                </div>
         </div>
-    }else{
-        <div class="card" style="width: 18rem; margin: 1.5rem">
-            <div style="display:flex; justify-content:end;"> <a asp-controller="Note" asp-action="Delete" asp-route-id="@note.Id">x</a> </div>
-            <img src="data:image/png;base64,@note.Image64" class="card-img-top" alt="...">
-            <div class="card-body">
-                <p> @note.Content </p>
+        }
+        else if (note.Image64 != "no-data" && note.Content == "%$#%@#@null%$#%@#@") // O img X text
+        {
+            <div class="card" style="width: 18rem; margin: 1.5rem">
+                <div style="display:flex; justify-content:end;"> <a asp-controller="Note" asp-action="Delete" asp-route-id="@note.Id" style="text-decoration: none">x</a> </div>
+                <img src="data:image/png;base64,@note.Image64" class="card-img-top" alt="...">
+                <br />
             </div>
-        </div>
-    }
+        }
+        else if (note.Image64 == "no-data" && note.Content == "%$#%@#@null%$#%@#@") // X img X text
+        {
+            <div class="card" style="width: 18rem; margin: 1.5rem">
+                <div style="display:flex; justify-content:end;"> <a asp-controller="Note" asp-action="Delete" asp-route-id="@note.Id" style="text-decoration: none">x</a> </div>
+                <div class="card-body">
+                    <center>
+                        <p> ทำหาพ่อมึง </p>
+                    </center>
+                </div>
+            </div>
+        }
 
 
 }

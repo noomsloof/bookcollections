@@ -12,11 +12,9 @@ namespace bookcollection.Models
         [Required]
         public int? BookID { get; set; }
 
-        [Required]
         [DisplayName("โน๊ต")]
         public string? Content { get; set; }
 
-        [Required]
         [DisplayName("รูป")]
         public string? Image64 { get; set; }
 

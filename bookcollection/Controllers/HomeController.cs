@@ -89,6 +89,9 @@ namespace bookcollection.Controllers
                 return NotFound();
             }
 
+            var objNote = _db.Notes.Where(n => n.BookID == id).ToList();
+            _db.Notes.RemoveRange(objNote);
+
             _db.Books.Remove(obj);
             _db.SaveChanges();
 

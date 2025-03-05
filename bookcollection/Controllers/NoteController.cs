@@ -52,13 +52,26 @@ namespace bookcollection.Controllers
                     }
                     else
                     {
-                        newNote.Image64 = null;
+                        newNote.Image64 = "no-data";
                     }
 
-                    _db.Notes.Add(newNote);
-                    _db.SaveChanges();
+                    if (newNote.Content == null)
+                    {
+                        newNote.Content = "%$#%@#@null%$#%@#@";
+                    }
 
-                    return RedirectToAction("Index");
+                    if(newNote.Content == "%$#%@#@null%$#%@#@" && newNote.Image64 == "no-data")
+                    {
+                        return RedirectToAction("Index");
+                    }
+                    else
+                    {
+                        _db.Notes.Add(newNote);
+                        _db.SaveChanges();
+
+                        return RedirectToAction("Index");
+                    }
+                    
                 }
                 else
                 {
