@@ -27,12 +27,25 @@
 <div class="row d-flex justify-content-center align-items-center">
 @foreach (var note in Model.Notes)
 {
-    <div class="card" style="width: 18rem; margin: 1.5rem">
-        <img src="data:image/png;base64,@note.Image64" class="card-img-top" alt="...">
-        <div class="card-body">
-            <p> @note.Content </p>
+
+    if(note.Image64 == null){
+        <div class="card" style="width: 18rem; margin: 1.5rem">
+            <div style="display:flex; justify-content:end;"> <a asp-controller="Note" asp-action="Delete" asp-route-id="@note.Id">x</a> </div>
+            <div class="card-body">
+                <p> @note.Content </p>
+            </div>
         </div>
-    </div>
+    }else{
+        <div class="card" style="width: 18rem; margin: 1.5rem">
+            <div style="display:flex; justify-content:end;"> <a asp-controller="Note" asp-action="Delete" asp-route-id="@note.Id">x</a> </div>
+            <img src="data:image/png;base64,@note.Image64" class="card-img-top" alt="...">
+            <div class="card-body">
+                <p> @note.Content </p>
+            </div>
+        </div>
+    }
+
+
 }
 </div>
 

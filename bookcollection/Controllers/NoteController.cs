@@ -45,15 +45,18 @@ namespace bookcollection.Controllers
                 if (obj != null)
                 {
                     var newNote = obj.NewNote;
+
                     if (newNote.ImageFile != null && newNote.ImageFile.Length > 0)
                     {
                         newNote.Image64 = ConvertImageToBase64(newNote.ImageFile);
                     }
+                    else
+                    {
+                        newNote.Image64 = null;
+                    }
 
-                    _db.Notes.Add(obj.NewNote);
+                    _db.Notes.Add(newNote);
                     _db.SaveChanges();
-
-                    int BookId = obj.ThisBook.Id;
 
                     return RedirectToAction("Index");
                 }
@@ -77,6 +80,27 @@ namespace bookcollection.Controllers
                 byte[] imageBytes = ms.ToArray();
                 return Convert.ToBase64String(imageBytes);
             }
+        }
+
+        public IActionResult Delete(int? id) {
+
+            if (id is null || id is 0)
+            {
+                return NotFound();
+            }
+
+            var obj = _db.Notes.Find(id);
+
+            if (obj == null)
+            {
+                return NotFound();
+            }
+
+            _db.Notes.Remove(obj);
+            _db.SaveChanges();
+
+            return RedirectToAction("Index");
+
         }
 
     }
