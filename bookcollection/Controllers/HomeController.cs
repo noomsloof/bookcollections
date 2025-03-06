@@ -3,6 +3,7 @@ using bookcollection.Data;
 using bookcollection.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace bookcollection.Controllers
 {
@@ -126,14 +127,33 @@ namespace bookcollection.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(Book obj)
         {
-            if (ModelState.IsValid)
+            if(obj == null)
             {
-                _db.Books.Update(obj);
-                _db.SaveChanges();
-                return RedirectToAction("Index");
+                return NotFound();
             }
-            return View(obj);
+
+            var inDB = _db.Books.AsNoTracking().FirstOrDefault(b => b.Id == obj.Id);
+
+            if (inDB == null)
+            {
+                return NotFound();
+            }
+
+            if (obj.ImageFile != null && obj.ImageFile.Length > 0)
+            {
+                obj.Image64 = ConvertImageToBase64(obj.ImageFile);
+            }
+            else
+            {
+                obj.Image64 = inDB.Image64;
+            }
+
+            _db.Books.Update(obj);
+            _db.SaveChanges();
+
+            return RedirectToAction("Index");
         }
+
     }
 
 }
