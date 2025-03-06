@@ -6,7 +6,7 @@
     <div class="card-header">
         <div style="display: flex;">
             <div>@Model.ThisBook.Category</div>
-            <div class="position-absolute top-0 end-0 p-2"> <h5> <a class="card-link" href="#" data-bs-toggle="modal" data-bs-target="#myModal" style="text-decoration: none">+</a> </h5> </div>
+            <div class="position-absolute top-0 end-0 p-2"> <h5> <a class="card-link" href="#" data-bs-toggle="modal" data-bs-target="#myModal" style="text-decoration: none">+</a> <a asp-controller="Home" asp-action="Edit" asp-route="@Model.ThisBook.Id"> Edit </a> </h5> </div>
         </div>
     </div>
     <div class="card-body">

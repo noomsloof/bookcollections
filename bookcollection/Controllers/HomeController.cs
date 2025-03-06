@@ -104,6 +104,36 @@ namespace bookcollection.Controllers
             ViewBag.ErrorMessage = errorMessage;
             return View();
         }
+
+        public IActionResult Edit(int? Id)
+        {
+            if (Id == null || Id == 0)
+            {
+                return NotFound();
+            }
+
+            var obj = _db.Books.Find(Id);
+
+            if (obj == null)
+            {
+                return NotFound();
+            }
+
+            return View(obj);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(Book obj)
+        {
+            if (ModelState.IsValid)
+            {
+                _db.Books.Update(obj);
+                _db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(obj);
+        }
     }
 
 }
