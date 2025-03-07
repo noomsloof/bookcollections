@@ -17,17 +17,31 @@
 <div class="row d-flex justify-content-center align-items-center">
 
     @foreach (var book in Model.Books)
-     {
-            <div class="card" style="width: 18rem; margin: 1.5rem">
-                <form asp-action="Index" asp-controller="Note" asp-route-id="@book.Id">
+    {
+        <div class="card" style="width: 18rem; margin: 1.5rem">
+            <form asp-action="Index" asp-controller="Note" asp-route-id="@book.Id">
                 <div onclick="this.closest('form').submit();" style="cursor: pointer;">
                     <div style="display:flex; justify-content:end;"> <a asp-controller="Home" asp-action="Delete" asp-route-id="@book.Id" style="text-decoration: none">x</a> </div>
-                     <img src="data:image/png;base64,@book.Image64" class="card-img-top" alt="...">
-                     <div class="card-body">
+                    <img src="data:image/png;base64,@book.Image64" class="card-img-top" alt="...">
+                    <div class="card-body">
                         <h5 class="card-title">@book.BookName</h5>
                         <p class="card-subtitle mb-2 text-muted">
                             @(book.Description.Length > 50 ? book.Description.Substring(0, 80) + "..." : book.Description)
                         </p>
+                        <div>
+                            @switch(book.Status){
+                                case 0:
+                                    <p> ยังไม่ได้อ่าน </p>
+                                    break;
+                                case 1:
+                                    <p> กำลังอ่าน </p>
+                                    break;
+                                case 2:
+                                    <p> อ่านจบแล้ว </p>
+                                    break;
+                            }
+                        </div>
+                        <div data-coreui-read-only="true" data-coreui-toggle="rating" data-coreui-value="@book.Score"></div>
                      </div>
                 </div>
             </form>

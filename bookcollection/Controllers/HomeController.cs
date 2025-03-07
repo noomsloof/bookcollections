@@ -49,6 +49,9 @@ namespace bookcollection.Controllers
                         newBook.Image64 = ConvertImageToBase64(newBook.ImageFile);
                     }
 
+                    newBook.Status = 0;
+                    newBook.Score = 0;
+
                 _db.Books.Add(obj.NewBook);
                 _db.SaveChanges();
                 return RedirectToAction("Index");

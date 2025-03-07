@@ -32,5 +32,12 @@ namespace bookcollection.Models
         [NotMapped]
         public IFormFile ImageFile { get; set; }
 
+        [Required]
+        [DisplayName("สถานะ")]
+        public int? Status { get; set; }
+
+        [Required]
+        [DisplayName("คะแนน")]
+        public int? Score { get; set; }
     }
 }
