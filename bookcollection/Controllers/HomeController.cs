@@ -2,6 +2,7 @@
 using bookcollection.Data;
 using bookcollection.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Build.Framework;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Migrations;
 
@@ -151,10 +152,60 @@ namespace bookcollection.Controllers
                 obj.Image64 = inDB.Image64;
             }
 
+            if(inDB.Status.HasValue && inDB.Score.HasValue)
+            {
+                obj.Status = inDB.Status;
+                obj.Score = inDB.Score;
+            }
+            else
+            {
+                obj.Status = 0;
+                obj.Score = 0;
+            }
+
+
             _db.Books.Update(obj);
             _db.SaveChanges();
 
             return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public IActionResult StatusUpdate(int Id, int Status)
+        {
+            var book = _db.Books.Find(Id);
+            if (book != null)
+            {
+                book.Status = Status;
+                _db.Entry(book).Property(b => b.Status).IsModified = true; // บอกให้ EF อัปเดตแค่ Status
+                _db.SaveChanges();
+                return RedirectToAction("Index");
+
+            }
+            else
+            {
+                return NotFound();
+            }
+            
+        }
+
+        [HttpPost]
+        public IActionResult ScoreUpdate(int Id, int Score)
+        {
+            var book = _db.Books.Find(Id);
+            if (book != null)
+            {
+                book.Score = Score;
+                _db.Entry(book).Property(b => b.Score).IsModified = true; // บอกให้ EF อัปเดตแค่ Score
+                _db.SaveChanges();
+                return RedirectToAction("Index");
+
+            }
+            else
+            {
+                return NotFound();
+            }
+
         }
 
     }

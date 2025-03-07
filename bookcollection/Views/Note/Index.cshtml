@@ -16,6 +16,87 @@
             <div class="col-9 d-flex flex-column justify-content-center align-items-center text-center">
                 <h5> @Model.ThisBook.BookName </h5>
                 <p> @Model.ThisBook.Description </p>
+
+                <div style="display:flex;justify-content: space-between; width:70%;">
+                    <a href="" style="text-decoration:none;" data-bs-toggle="modal" data-bs-target="#ModalStatus">
+                        @switch (Model.ThisBook.Status)
+                        {
+                            case 0:
+                                <p> ยังไม่ได้อ่าน </p>
+                                break;
+                            case 1:
+                                <p> กำลังอ่าน </p>
+                                break;
+                            case 2:
+                                <p> อ่านจบแล้ว </p>
+                                break;
+                        }
+                    </a>
+
+                    <div>
+                        <a href="" style="text-decoration:none;" data-bs-toggle="modal" data-bs-target="#ModalScore">
+                            @switch (Model.ThisBook.Score)
+                            {
+                                case 0:
+                                    <div>
+                                        <i class="fa-regular fa-star"></i>
+                                        <i class="fa-regular fa-star"></i>
+                                        <i class="fa-regular fa-star"></i>
+                                        <i class="fa-regular fa-star"></i>
+                                        <i class="fa-regular fa-star"></i>
+                                    </div>
+                                    break;
+                                case 1:
+                                    <div>
+                                        <i class="fa-solid fa-star text-warning"></i>
+                                        <i class="fa-regular fa-star"></i>
+                                        <i class="fa-regular fa-star"></i>
+                                        <i class="fa-regular fa-star"></i>
+                                        <i class="fa-regular fa-star"></i>
+                                    </div>
+                                    break;
+                                case 2:
+                                    <div>
+                                        <i class="fa-solid fa-star text-warning"></i>
+                                        <i class="fa-solid fa-star text-warning"></i>
+                                        <i class="fa-regular fa-star"></i>
+                                        <i class="fa-regular fa-star"></i>
+                                        <i class="fa-regular fa-star"></i>
+                                    </div>
+                                    break;
+                                case 3:
+                                    <div>
+                                        <i class="fa-solid fa-star text-warning"></i>
+                                        <i class="fa-solid fa-star text-warning"></i>
+                                        <i class="fa-solid fa-star text-warning"></i>
+                                        <i class="fa-regular fa-star"></i>
+                                        <i class="fa-regular fa-star"></i>
+                                    </div>
+                                    break;
+                                case 4:
+                                    <div>
+                                        <i class="fa-solid fa-star text-warning"></i>
+                                        <i class="fa-solid fa-star text-warning"></i>
+                                        <i class="fa-solid fa-star text-warning"></i>
+                                        <i class="fa-solid fa-star text-warning"></i>
+                                        <i class="fa-regular fa-star"></i>
+                                    </div>
+                                    break;
+                                case 5:
+                                    <div>
+                                        <i class="fa-solid fa-star text-warning"></i>
+                                        <i class="fa-solid fa-star text-warning"></i>
+                                        <i class="fa-solid fa-star text-warning"></i>
+                                        <i class="fa-solid fa-star text-warning"></i>
+                                        <i class="fa-solid fa-star text-warning"></i>
+                                    </div>
+                                    break;
+                            }
+                        </a>
+                    </div>
+                </div>
+
+
                 <div class="position-absolute bottom-0 end-0 p-2">  @Model.ThisBook.Author </div>
             </div> 
         </div>
@@ -106,3 +187,61 @@
         </div>
     </div>
 </form>
+
+
+    <div class="modal fade" id="ModalStatus" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
+    <form method="post" asp-controller="Home" asp-action="StatusUpdate">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="myModalLabel">สถานะ</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    
+                    <input name="Id" type="text" value="@Model.ThisBook.Id" hidden>
+                    <select name="Status" class="form-select" size="3" aria-label="">
+                        <option value="0">ยังไม่ได้อ่าน</option>
+                        <option value="1">กำลังอ่าน</option>
+                        <option value="2">อ่านจบแล้ว</option>
+                    </select>
+                
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">ปิด</button>
+                    <button type="submit" class="btn btn-primary">บันทึก</button>
+                </div>
+            </div>
+        </div>
+    </form>
+    </div>
+
+<div class="modal fade" id="ModalScore" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
+    <form method="post" asp-controller="Home" asp-action="ScoreUpdate">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="myModalLabel">สถานะ</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                    <input name="Id" type="text" value="@Model.ThisBook.Id" hidden>
+                    <select name="Score" class="form-select" size="6" aria-label="">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">ปิด</button>
+                    <button type="submit" class="btn btn-primary">บันทึก</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

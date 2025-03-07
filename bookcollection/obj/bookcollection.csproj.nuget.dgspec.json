@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\bc\\bookcollections\\bookcollection\\bookcollection.csproj": {}
+    "C:\\Users\\thebe\\OneDrive\\Desktop\\bc\\bookcollection\\bookcollection\\bookcollection.csproj": {}
   },
   "projects": {
-    "D:\\bc\\bookcollections\\bookcollection\\bookcollection.csproj": {
+    "C:\\Users\\thebe\\OneDrive\\Desktop\\bc\\bookcollection\\bookcollection\\bookcollection.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\bc\\bookcollections\\bookcollection\\bookcollection.csproj",
+        "projectUniqueName": "C:\\Users\\thebe\\OneDrive\\Desktop\\bc\\bookcollection\\bookcollection\\bookcollection.csproj",
         "projectName": "bookcollection",
-        "projectPath": "D:\\bc\\bookcollections\\bookcollection\\bookcollection.csproj",
+        "projectPath": "C:\\Users\\thebe\\OneDrive\\Desktop\\bc\\bookcollection\\bookcollection\\bookcollection.csproj",
         "packagesPath": "C:\\Users\\thebe\\.nuget\\packages\\",
-        "outputPath": "D:\\bc\\bookcollections\\bookcollection\\obj\\",
+        "outputPath": "C:\\Users\\thebe\\OneDrive\\Desktop\\bc\\bookcollection\\bookcollection\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -26,7 +26,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {

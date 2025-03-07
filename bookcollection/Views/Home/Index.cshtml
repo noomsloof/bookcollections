@@ -13,7 +13,6 @@
 
 <div class="d-flex justify-content-center align-items-center"> <input type="text" name="name" value="" /> </div>
 
-
 <div class="row d-flex justify-content-center align-items-center">
 
     @foreach (var book in Model.Books)
@@ -28,20 +27,81 @@
                         <p class="card-subtitle mb-2 text-muted">
                             @(book.Description.Length > 50 ? book.Description.Substring(0, 80) + "..." : book.Description)
                         </p>
-                        <div>
-                            @switch(book.Status){
-                                case 0:
-                                    <p> ยังไม่ได้อ่าน </p>
-                                    break;
-                                case 1:
-                                    <p> กำลังอ่าน </p>
-                                    break;
-                                case 2:
-                                    <p> อ่านจบแล้ว </p>
-                                    break;
-                            }
+                        <div style="display:flex;justify-content: space-between;" class="text-muted">
+                            <div style="font-size: 0.7rem;">
+                                @switch(book.Status){
+                                    case 0:
+                                        <p> ยังไม่ได้อ่าน </p>
+                                        break;
+                                    case 1:
+                                        <p> กำลังอ่าน </p>
+                                        break;
+                                    case 2:
+                                        <p> อ่านจบแล้ว </p>
+                                        break;
+                                }
+                            </div>
+
+                            <div style="font-size: 0.7rem;">
+                                @switch (book.Score)
+                                {
+                                    case 0:
+                                        <div>
+                                            <i class="fa-regular fa-star"></i>
+                                            <i class="fa-regular fa-star"></i>
+                                            <i class="fa-regular fa-star"></i>
+                                            <i class="fa-regular fa-star"></i>
+                                            <i class="fa-regular fa-star"></i>
+                                        </div>
+                                        break;
+                                    case 1:
+                                        <div>
+                                            <i class="fa-solid fa-star text-warning"></i>
+                                            <i class="fa-regular fa-star"></i>
+                                            <i class="fa-regular fa-star"></i>
+                                            <i class="fa-regular fa-star"></i>
+                                            <i class="fa-regular fa-star"></i>
+                                        </div>
+                                        break;
+                                    case 2:
+                                        <div>
+                                            <i class="fa-solid fa-star text-warning"></i>
+                                            <i class="fa-solid fa-star text-warning"></i>
+                                            <i class="fa-regular fa-star"></i>
+                                            <i class="fa-regular fa-star"></i>
+                                            <i class="fa-regular fa-star"></i>
+                                        </div>
+                                        break;
+                                    case 3:
+                                        <div>
+                                            <i class="fa-solid fa-star text-warning"></i>
+                                            <i class="fa-solid fa-star text-warning"></i>
+                                            <i class="fa-solid fa-star text-warning"></i>
+                                            <i class="fa-regular fa-star"></i>
+                                            <i class="fa-regular fa-star"></i>
+                                        </div>
+                                        break;
+                                    case 4:
+                                        <div>
+                                            <i class="fa-solid fa-star text-warning"></i>
+                                            <i class="fa-solid fa-star text-warning"></i>
+                                            <i class="fa-solid fa-star text-warning"></i>
+                                            <i class="fa-solid fa-star text-warning"></i>
+                                            <i class="fa-regular fa-star"></i>
+                                        </div>
+                                        break;
+                                    case 5:
+                                        <div>
+                                            <i class="fa-solid fa-star text-warning"></i>
+                                            <i class="fa-solid fa-star text-warning"></i>
+                                            <i class="fa-solid fa-star text-warning"></i>
+                                            <i class="fa-solid fa-star text-warning"></i>
+                                            <i class="fa-solid fa-star text-warning"></i>
+                                        </div>
+                                        break;
+                                }
+                            </div>
                         </div>
-                        <div data-coreui-read-only="true" data-coreui-toggle="rating" data-coreui-value="@book.Score"></div>
                      </div>
                 </div>
             </form>
