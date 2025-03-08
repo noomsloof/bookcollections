@@ -11,7 +11,12 @@
     <p>หนังสือเก่าในมุมเดิม</p>
 </div>
 
-<div class="d-flex justify-content-center align-items-center"> <input type="text" name="name" value="" /> </div>
+<form method="get" asp-controller="Home" asp-action="Index">
+    <div class="d-flex justify-content-center align-items-center from-control"> 
+        <input type="text" name="searchQuery" placeholder="ค้นหา..." />
+        <button type="submit" class="btn btn-primary">ค้นหา</button>
+    </div>
+</form>
 
 <div class="row d-flex justify-content-center align-items-center">
 

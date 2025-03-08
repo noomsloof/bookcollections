@@ -16,23 +16,41 @@ namespace bookcollection.Controllers
             _db = db;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(string searchQuery)
         {
-
-            try
+            if (searchQuery != null)
             {
-                var viewModel = new BookViewModel
+                try
                 {
-                    Books = _db.Books.ToList()
-                };
-                return View(viewModel);
+                    var viewModel = new BookViewModel
+                    {
+                        Books = _db.Books.Where(b => b.BookName.Contains(searchQuery) || b.Description.Contains(searchQuery) || b.Author.Contains(searchQuery) || b.Category.Contains(searchQuery)).ToList()
+                    };
+                    return View(viewModel);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Error: {ex.Message}");
+                    return RedirectToAction("Error", new { errorMessage = ex.Message });
+                }
             }
-            catch (Exception ex)
+            else
             {
-                Console.WriteLine($"Error: {ex.Message}");
-                return RedirectToAction("Error", new { errorMessage = ex.Message });
+                try
+                {
+                    var viewModel = new BookViewModel
+                    {
+                        Books = _db.Books.ToList()
+                    };
+                    return View(viewModel);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Error: {ex.Message}");
+                    return RedirectToAction("Error", new { errorMessage = ex.Message });
+                }
             }
-
+            
         }
 
         
