@@ -8,7 +8,7 @@ namespace bookcollection.Controllers
 {
     public class MoreBookController : Controller
     {
-        private readonly string apiKey = "AIzaSyAptgA8XirEQGG_mq-2eCbqVqBvAOgx4i8";
+        private readonly string apiKey = "Your API Key";
         public async Task<IActionResult> Index(string query)
         {
             if(query is null)
