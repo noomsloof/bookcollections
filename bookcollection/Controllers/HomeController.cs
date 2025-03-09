@@ -197,7 +197,7 @@ namespace bookcollection.Controllers
                 book.Status = Status;
                 _db.Entry(book).Property(b => b.Status).IsModified = true; // บอกให้ EF อัปเดตแค่ Status
                 _db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Note", new { id = book.Id });
 
             }
             else
@@ -216,7 +216,7 @@ namespace bookcollection.Controllers
                 book.Score = Score;
                 _db.Entry(book).Property(b => b.Score).IsModified = true; // บอกให้ EF อัปเดตแค่ Score
                 _db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Note", new { id = book.Id });
 
             }
             else

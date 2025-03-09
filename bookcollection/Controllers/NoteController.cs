@@ -2,6 +2,7 @@
 using bookcollection.Data;
 using bookcollection.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Routing;
 
 namespace bookcollection.Controllers
 {
@@ -62,14 +63,15 @@ namespace bookcollection.Controllers
 
                     if(newNote.Content == "%$#%@#@null%$#%@#@" && newNote.Image64 == "no-data")
                     {
-                        return RedirectToAction("Index");
+                        return RedirectToAction("Index", new { id = newNote.BookID });
                     }
                     else
                     {
                         _db.Notes.Add(newNote);
                         _db.SaveChanges();
 
-                        return RedirectToAction("Index");
+                        return RedirectToAction("Index", new { id = newNote.BookID });
+
                     }
                     
                 }
@@ -112,7 +114,7 @@ namespace bookcollection.Controllers
             _db.Notes.Remove(obj);
             _db.SaveChanges();
 
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", new { id = obj.BookID });
 
         }
 
